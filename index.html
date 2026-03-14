@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>張現傑｜工業不動產與設廠評估整合服務</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Microsoft JhengHei", "PingFang TC", "Heiti TC", Arial, sans-serif;
+  font-size: 15px;
+  background: #F0F4FA;
+  color: #1A2233;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== 睦聚配色系統（不顯示品牌名）===== */
+:root {
+  --deep-navy:   #1B3A6B;   /* 深海藍 - 主色 */
+  --mid-navy:    #2A5090;   /* 中深藍 */
+  --indigo:      #2E6FD4;   /* 靛藍 - 互動 */
+  --sky-gold:    #C8971A;   /* 天際金 - 點綴 */
+  --sky-gold-lt: #F5E8C0;   /* 天際金淡 */
+  --fog-white:   #F0F4FA;   /* 霧白 - 頁背景 */
+  --card-white:  #FFFFFF;   /* 卡片白 */
+  --text-dark:   #1A2233;   /* 深墨 */
+  --text-mid:    #3A4A5C;   /* 中間色 */
+  --text-light:  #6A7A8C;   /* 淺灰字 */
+  --border:      #D4DCE8;   /* 邊框 */
+  --blue-lt:     #E8F0FB;   /* 淺藍底 */
+}
+
+/* ===== LAYOUT ===== */
+.page-wrap { max-width: 540px; margin: 0 auto; }
+
+/* ===== SECTION 共用 ===== */
+.section {
+  padding: 40px 20px;
+  position: relative;
+}
+.section + .section { border-top: 1px solid var(--border); }
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--indigo);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+.section-title {
+  font-family: "Noto Serif TC", "Georgia", serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--deep-navy);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.section-body {
+  color: var(--text-mid);
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+
+/* ===== 1. 首屏識別區 ===== */
+.hero {
+  background: linear-gradient(155deg, #1B3A6B 0%, #2A5090 55%, #2E6FD4 100%);
+  padding: 48px 24px 44px;
+  position: relative;
+  overflow: hidden;
+}
+/* 幾何裝飾圓 */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; right: 80px;
+  width: 130px; height: 130px;
+  border-radius: 50%;
+  background: rgba(200,151,26,0.10);
+}
+/* 金色細線裝飾 */
+.hero-accent-line {
+  position: absolute;
+  left: 0; top: 0;
+  width: 4px; height: 100%;
+  background: linear-gradient(180deg, var(--sky-gold) 0%, transparent 100%);
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(200,151,26,0.25);
+  border: 1px solid rgba(200,151,26,0.4);
+  color: #F5E8C0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+.hero-name {
+  font-family: "Noto Serif TC", "Georgia", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.hero-name span {
+  color: var(--sky-gold);
+}
+.hero-role {
+  font-size: 13px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.hero-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--sky-gold);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(200,151,26,0.4);
+  transition: opacity 0.2s;
+}
+.hero-cta:hover { opacity: 0.9; }
+.hero-cta svg { flex-shrink: 0; }
+
+/* ===== 2. 新名片展示區 ===== */
+.card-section {
+  background: #FFFFFF;
+  padding: 36px 20px;
+}
+.card-section .section-title {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.biz-card-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.biz-card-slot {
+  background: var(--fog-white);
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  min-height: 168px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--text-light);
+  font-size: 13px;
+  position: relative;
+  overflow: hidden;
+}
+.biz-card-slot.has-image {
+  border: none;
+  background: transparent;
+  min-height: auto;
+}
+.biz-card-slot.has-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(27,58,107,0.14);
+  display: block;
+}
+.biz-card-placeholder-icon {
+  width: 40px; height: 40px;
+  background: var(--blue-lt);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.biz-card-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  background: var(--card-white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 10px;
+  position: absolute;
+  bottom: 10px; right: 10px;
+}
+
+/* ===== 3. 專業升級說明區 ===== */
+.upgrade-section {
+  background: var(--fog-white);
+  padding: 40px 20px;
+}
+.upgrade-list {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.upgrade-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: white;
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 2px 8px rgba(27,58,107,0.07);
+  border-left: 4px solid var(--indigo);
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+.upgrade-list li .icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.benefit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+.benefit-card {
+  background: var(--blue-lt);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+  color: var(--deep-navy);
+  line-height: 1.7;
+}
+.benefit-card .check {
+  width: 22px; height: 22px;
+  background: var(--indigo);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.benefit-card .check svg { display: block; }
+
+/* ===== 4. 目前可協助事項區 ===== */
+.service-section {
+  background: #FFFFFF;
+  padding: 40px 20px;
+}
+.service-top-card {
+  background: linear-gradient(135deg, #1B3A6B 0%, #2E6FD4 100%);
+  border-radius: 12px;
+  padding: 18px 20px;
+  color: white;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.service-top-icon {
+  width: 44px; height: 44px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.service-top-card h3 {
+  font-family: "Noto Serif TC", serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 2px;
+}
+.service-top-card p {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.service-list {
+  list-style: none;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.service-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+.service-list li:last-child { border-bottom: none; }
+.service-bullet {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--indigo);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+.target-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.target-tag {
+  background: var(--blue-lt);
+  color: var(--deep-navy);
+  border: 1px solid #BDD0EE;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+}
+.scenario-box {
+  background: var(--fog-white);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+}
+.scenario-box h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--indigo);
+  margin-bottom: 10px;
+}
+.scenario-box ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.scenario-box ul li {
+  font-size: 13.5px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  padding-left: 16px;
+  position: relative;
+}
+.scenario-box ul li::before {
+  content: '›';
+  position: absolute; left: 0;
+  color: var(--sky-gold);
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.low-barrier-callout {
+  border-left: 4px solid var(--sky-gold);
+  background: var(--sky-gold-lt);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #5A3A00;
+  line-height: 1.75;
+}
+
+/* ===== 5. 專業資歷簡介區 ===== */
+.bio-section {
+  background: var(--fog-white);
+  padding: 40px 20px;
+}
+.bio-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px 20px;
+  box-shadow: 0 2px 12px rgba(27,58,107,0.08);
+}
+/* 個人形象照預留位置 */
+.photo-placeholder {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: var(--blue-lt);
+  border: 3px solid var(--indigo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--indigo);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.4;
+  overflow: hidden;
+  position: relative;
+}
+.photo-placeholder.has-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.bio-name-block {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.bio-name-block h3 {
+  font-family: "Noto Serif TC", serif;
+  font-size: 22px;
+  color: var(--deep-navy);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.bio-name-block p {
+  font-size: 13px;
+  color: var(--text-light);
+}
+.bio-divider {
+  width: 40px; height: 3px;
+  background: var(--sky-gold);
+  margin: 0 auto 20px;
+  border-radius: 2px;
+}
+.bio-text {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.85;
+  margin-bottom: 14px;
+}
+.bio-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+.bio-highlight-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: var(--fog-white);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--deep-navy);
+}
+.bio-highlight-item .hl-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* ===== 6. 合作資源區 ===== */
+.partner-section {
+  background: #FFFFFF;
+  padding: 40px 20px;
+}
+.partner-intro-card {
+  background: var(--fog-white);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+}
+/* 瑞禾 Logo 預留位置 */
+.partner-logo-slot {
+  width: 120px;
+  height: 44px;
+  background: var(--blue-lt);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--text-light);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.partner-logo-slot.has-logo img {
+  height: 100%; width: auto;
+  object-fit: contain;
+}
+.partner-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--deep-navy);
+  margin-bottom: 8px;
+}
+.partner-intro-card p {
+  font-size: 13.5px;
+  color: var(--text-mid);
+  line-height: 1.8;
+}
+.partner-service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.partner-service-item {
+  background: var(--fog-white);
+  border-radius: 10px;
+  padding: 14px 14px;
+  border-left: 3px solid var(--indigo);
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+.partner-service-item .ps-icon {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 6px;
+}
+.partner-service-item strong {
+  display: block;
+  color: var(--deep-navy);
+  font-size: 12.5px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+/* ===== 7. 聯繫入口區 ===== */
+.contact-section {
+  background: linear-gradient(155deg, #1B3A6B 0%, #2A5090 60%, #1B3A6B 100%);
+  padding: 44px 20px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.contact-section .section-label { color: var(--sky-gold); }
+.contact-section .section-title { color: #FFFFFF; }
+.contact-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 28px;
+  line-height: 1.8;
+}
+.contact-info-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+.contact-row:last-child { border-bottom: none; padding-bottom: 0; }
+.contact-row:first-child { padding-top: 0; }
+.contact-icon {
+  width: 38px; height: 38px;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+.contact-icon.phone-icon { background: rgba(46,111,212,0.3); }
+.contact-icon.line-icon  { background: rgba(6,199,85,0.25); }
+.contact-icon.fb-icon    { background: rgba(66,103,178,0.3); }
+.contact-meta { flex: 1; }
+.contact-meta span {
+  display: block;
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2px;
+}
+.contact-meta strong {
+  font-size: 15px;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+.contact-placeholder {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  font-style: italic;
+}
+/* LINE QR 預留位置 */
+.line-qr-wrap {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 20px;
+}
+.qr-slot {
+  width: 90px; height: 90px;
+  background: rgba(255,255,255,0.1);
+  border: 2px dashed rgba(255,255,255,0.3);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.45);
+  font-weight: 700;
+  text-align: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.qr-slot.has-qr { border: none; background: white; }
+.qr-slot.has-qr img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
+.line-cta-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.btn-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #06C755;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(6,199,85,0.35);
+}
+.btn-call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.contact-footer-note {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 24px;
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* ===== FOOTER ===== */
+.page-footer {
+  background: #0F2245;
+  padding: 22px 20px;
+  text-align: center;
+}
+.footer-brand {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.8;
+}
+.footer-brand strong {
+  color: rgba(255,255,255,0.65);
+}
+
+/* ===== DIVIDER 金色裝飾線 ===== */
+.gold-divider {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--sky-gold), transparent);
+  margin: 0;
+}
+
+/* ===== RESPONSIVE (mobile first, 桌面稍微加寬) ===== */
+@media (min-width: 600px) {
+  .partner-service-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .benefit-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+<!-- ══════════════════════════════
+     區塊 1｜首屏識別區
+══════════════════════════════ -->
+<section class="hero">
+  <div class="hero-accent-line"></div>
+
+  <div class="hero-tag">工業不動產・設廠評估・整合服務</div>
+
+  <div class="hero-name">
+    張現傑<span>｜</span>
+  </div>
+
+  <div class="hero-role">
+    工業地・廠房・產業用地 買賣租賃・設廠選址・地主資產活化
+  </div>
+
+  <p class="hero-desc">
+    從物件媒合，到企業設廠選址、地主資產活化與土地開發前期評估，提供更完整的整合協助。
+  </p>
+
+  <a href="#contact" class="hero-cta">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    查看服務內容與聯繫方式
+  </a>
+</section>
+
+<div class="gold-divider"></div>
+
+
+<!-- ══════════════════════════════
+     區塊 2｜新名片展示區
+══════════════════════════════ -->
+<section class="card-section">
+  <div class="biz-card-wrap">
+
+    <!-- 名片正面：請替換 src 為實際圖片路徑或 base64 -->
+    <div class="biz-card-slot" id="card-front">
+      <div class="biz-card-placeholder-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E6FD4" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+      </div>
+      <span>名片正面圖<br>待上傳</span>
+      <span class="biz-card-label">正面</span>
+    </div>
+
+    <!-- 名片背面：請替換 src 為實際圖片路徑或 base64 -->
+    <div class="biz-card-slot" id="card-back">
+      <div class="biz-card-placeholder-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E6FD4" stroke-width="2" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+      </div>
+      <span>名片背面圖<br>待上傳</span>
+      <span class="biz-card-label">背面</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+
+<!-- ══════════════════════════════
+     區塊 3｜專業升級說明區
+══════════════════════════════ -->
+<section class="upgrade-section">
+  <span class="section-label">服務升級</span>
+  <h2 class="section-title">目前服務比過去更完整</h2>
+
+  <p class="section-body">
+    從工業不動產實務經驗出發，現階段進一步整合更完整的土地、廠房與開發評估資源，讓企業與地主在出售、出租、找地、設廠與前期規劃上，可以更早獲得方向判斷與整合協助。
+  </p>
+  <br>
+  <p class="section-body">
+    目前可結合相關團隊在工業不動產、土地開發、都市計畫與前期顧問資源上的整合能力，讓服務不再只是單一物件媒合，而是更完整的前期協助與後續方向串接。
+  </p>
+
+  <ul class="upgrade-list">
+    <li>
+      <span class="icon">🏭</span>
+      <span>從物件媒合，延伸到更前端的設廠評估與條件判斷</span>
+    </li>
+    <li>
+      <span class="icon">📋</span>
+      <span>從交易協助，延伸到地主資產活化與土地可行性整合</span>
+    </li>
+    <li>
+      <span class="icon">🔗</span>
+      <span>從單點服務，提升為可串接仲介、開發、都市計畫與相關專業資源的整體協助</span>
+    </li>
+  </ul>
+
+  <h3 style="font-family:'Noto Serif TC',serif;font-size:15px;color:var(--deep-navy);margin:24px 0 12px;font-weight:700;">您可以感受到的直接好處</h3>
+
+  <div class="benefit-grid">
+    <div class="benefit-card">
+      <div class="check">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+      </div>
+      <span>在出售、出租、找地、設廠前，可先獲得更完整的前期評估與方向判斷</span>
+    </div>
+    <div class="benefit-card">
+      <div class="check">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+      </div>
+      <span>減少只看單一物件或單一角度造成的誤判，提高決策效率</span>
+    </div>
+    <div class="benefit-card">
+      <div class="check">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+      </div>
+      <span>若涉及土地條件、開發可行性或後續規劃需求，可更早串接相關資源協助</span>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+
+<!-- ══════════════════════════════
+     區塊 4｜目前可協助事項區
+══════════════════════════════ -->
+<section class="service-section">
+  <span class="section-label">服務項目</span>
+  <h2 class="section-title">目前可協助的服務內容</h2>
+
+  <!-- 主打服務 -->
+  <div class="service-top-card">
+    <div class="service-top-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="10" width="18" height="11" rx="1"/>
+        <polyline points="3,10 12,3 21,10"/>
+        <rect x="9" y="14" width="3" height="7"/>
+        <rect x="12" y="14" width="3" height="7"/>
+      </svg>
+    </div>
+    <div>
+      <h3>工業地／廠房／產業用地</h3>
+      <p>媒合與前期評估整合協助</p>
+    </div>
+  </div>
+
+  <!-- 核心服務清單 -->
+  <ul class="service-list">
+    <li><span class="service-bullet"></span><span>工業地、廠房、產業用地之買賣與租賃媒合</span></li>
+    <li><span class="service-bullet"></span><span>企業設廠選址與用地條件評估</span></li>
+    <li><span class="service-bullet"></span><span>地主資產活化、出售、出租與整體規劃建議</span></li>
+    <li><span class="service-bullet"></span><span>土地開發可行性與前期整合評估</span></li>
+    <li><span class="service-bullet"></span><span>土地使用變更、都市計畫／重劃等方向性協助與資源串接</span></li>
+  </ul>
+
+  <!-- 服務對象 -->
+  <h3 style="font-family:'Noto Serif TC',serif;font-size:14px;color:var(--deep-navy);margin-bottom:10px;font-weight:700;">服務對象</h3>
+  <div class="target-row">
+    <span class="target-tag">工業地主・資產持有者</span>
+    <span class="target-tag">企業主・工廠經營者</span>
+    <span class="target-tag">設廠・擴廠・搬遷需求</span>
+    <span class="target-tag">土地條件評估</span>
+  </div>
+
+  <!-- 常見需求情境 -->
+  <div class="scenario-box">
+    <h4>常見需求情境</h4>
+    <ul>
+      <li>有工業地、廠房或其他土地資產，想評估出售、出租或活化方向</li>
+      <li>企業有找地、設廠、擴廠、搬遷需求，想先判斷區位與條件可行性</li>
+      <li>土地涉及使用條件、變更、開發可能性，想先釐清可行方向與整合資源</li>
+    </ul>
+  </div>
+
+  <!-- 低門檻聯繫 -->
+  <div class="low-barrier-callout">
+    💬 若您手上有相關資產，或身邊有企業主、地主正在評估出售、出租、找地、設廠或土地規劃方向，都歡迎先聊聊。
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+
+<!-- ══════════════════════════════
+     區塊 5｜專業資歷簡介區
+══════════════════════════════ -->
+<section class="bio-section">
+  <span class="section-label">資歷</span>
+  <h2 class="section-title">專業資歷簡介</h2>
+
+  <div class="bio-card">
+
+    <!-- 個人形象照預留位置 -->
+    <div class="photo-placeholder" id="profile-photo">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2E6FD4" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    </div>
+    <!-- 若要換成實際照片，可把上方 div 改為：
+    <div class="photo-placeholder has-photo">
+      <img src="YOUR_PHOTO_URL" alt="張現傑">
+    </div>
+    -->
+
+    <div class="bio-name-block">
+      <h3>張現傑</h3>
+      <p>工業不動產・設廠評估整合服務</p>
+    </div>
+    <div class="bio-divider"></div>
+
+    <p class="bio-text">
+      累積約 <strong>17 年</strong>不動產實務經驗，近年主要專注於<strong>工業地、廠房、產業用地</strong>領域，長期服務台中及中部地區市場。
+    </p>
+    <p class="bio-text">
+      早期於<strong>信義體系</strong>接受完整不動產專業訓練，建立對交易流程、價格判斷與交易安全的高度重視；後續持續深耕工業不動產實務，累積企業設廠需求、地主資產活化、工業地與廠房市場判斷等豐富經驗。
+    </p>
+    <p class="bio-text">
+      目前進一步整合更完整的工業不動產、土地開發與前期評估相關資源，提供企業與地主更全面的整合協助。
+    </p>
+
+    <div class="bio-highlights">
+      <div class="bio-highlight-item">
+        <span class="hl-icon">🏅</span>
+        <span><strong>17 年以上</strong>不動產實務經驗</span>
+      </div>
+      <div class="bio-highlight-item">
+        <span class="hl-icon">🏭</span>
+        <span>專注<strong>中部工業不動產</strong>市場</span>
+      </div>
+      <div class="bio-highlight-item">
+        <span class="hl-icon">🏢</span>
+        <span>信義體系出身，<strong>完整專業訓練</strong></span>
+      </div>
+      <div class="bio-highlight-item">
+        <span class="hl-icon">🔗</span>
+        <span>可整合<strong>開發、都計、仲介</strong>多方資源</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+
+<!-- ══════════════════════════════
+     區塊 6｜可整合的合作資源區（瑞禾開發）
+══════════════════════════════ -->
+<section class="partner-section">
+  <span class="section-label">合作資源</span>
+  <h2 class="section-title">可整合的合作資源</h2>
+
+  <div class="partner-intro-card">
+    <!-- 瑞禾開發 LOGO 預留位置 -->
+    <div class="partner-logo-slot" id="ruihe-logo">
+      LOGO 待上傳
+    </div>
+    <!-- 若要換成實際 Logo，改為：
+    <div class="partner-logo-slot has-logo">
+      <img src="YOUR_LOGO_URL" alt="瑞禾開發">
+    </div>
+    -->
+
+    <div class="partner-label">瑞禾開發 建築・房產整合團隊</div>
+    <p>
+      目前可結合瑞禾開發團隊在工業不動產、土地與廠房開發、都市計畫及工程顧問等面向的相關資源，讓企業與地主在前期評估、媒合、交易與開發規劃上，能有更完整的整合協助。
+    </p>
+  </div>
+
+  <div class="partner-service-grid">
+    <div class="partner-service-item">
+      <span class="ps-icon">🏭</span>
+      <strong>工業不動產仲介</strong>
+      工業地・廠房媒合
+    </div>
+    <div class="partner-service-item">
+      <span class="ps-icon">🏗</span>
+      <strong>土地與廠房開發</strong>
+      整合開發規劃
+    </div>
+    <div class="partner-service-item">
+      <span class="ps-icon">📍</span>
+      <strong>企業設廠選址</strong>
+      前期評估協助
+    </div>
+    <div class="partner-service-item">
+      <span class="ps-icon">📋</span>
+      <strong>地主資產活化</strong>
+      開發可行性評估
+    </div>
+    <div class="partner-service-item">
+      <span class="ps-icon">🗺</span>
+      <strong>都市計畫・變更</strong>
+      重劃前期整合
+    </div>
+    <div class="partner-service-item">
+      <span class="ps-icon">🔧</span>
+      <strong>工程顧問</strong>
+      後續規劃串接
+    </div>
+  </div>
+
+</section>
+
+<div class="gold-divider"></div>
+
+
+<!-- ══════════════════════════════
+     區塊 7｜聯繫入口區
+══════════════════════════════ -->
+<section class="contact-section" id="contact">
+  <span class="section-label">聯繫我</span>
+  <h2 class="section-title">若您或身邊朋友有相關需求<br>歡迎直接聯繫</h2>
+
+  <p class="contact-desc">
+    有土地、廠房相關問題，或想評估設廠、資產活化方向，都歡迎先聊聊，不設門檻。
+  </p>
+
+  <!-- 聯繫資訊卡 -->
+  <div class="contact-info-card">
+
+    <!-- 手機號碼 -->
+    <div class="contact-row">
+      <div class="contact-icon phone-icon">📱</div>
+      <div class="contact-meta">
+        <span>手機</span>
+        <strong id="phone-number">
+          <!-- 請替換為實際手機號碼 -->
+          <span class="contact-placeholder">待補充電話號碼</span>
+        </strong>
+      </div>
+    </div>
+
+    <!-- LINE -->
+    <div class="contact-row">
+      <div class="contact-icon line-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#06C755"><path d="M12 2C6.48 2 2 6.03 2 11c0 4.03 2.77 7.45 6.6 8.72L8 22l3.06-1.56C11.36 20.47 11.68 20.5 12 20.5c5.52 0 10-4.03 10-9S17.52 2 12 2zm-3 8h6M9 14h3"/></svg>
+      </div>
+      <div class="contact-meta">
+        <span>LINE 聯繫（主要）</span>
+        <strong id="line-id">
+          <!-- 請替換為實際 LINE ID 或顯示名稱 -->
+          <span class="contact-placeholder">待補充 LINE ID</span>
+        </strong>
+      </div>
+    </div>
+
+    <!-- Facebook（選填） -->
+    <div class="contact-row">
+      <div class="contact-icon fb-icon">📘</div>
+      <div class="contact-meta">
+        <span>Facebook（選填）</span>
+        <strong id="fb-link">
+          <!-- 若要放 FB 粉專，替換此處 -->
+          <span class="contact-placeholder">待補充 Facebook 粉專</span>
+        </strong>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LINE QR + 按鈕 -->
+  <div class="line-qr-wrap">
+    <!-- LINE QR Code 預留位置 -->
+    <div class="qr-slot" id="line-qr">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="3" height="3"/></svg>
+      LINE<br>QR 待上傳
+    </div>
+    <!-- 若要換成實際 QR：
+    <div class="qr-slot has-qr">
+      <img src="YOUR_QR_IMAGE" alt="LINE QR">
+    </div>
+    -->
+
+    <div class="line-cta-wrap">
+      <!-- LINE 連結：替換 href 為實際 LINE 連結 -->
+      <a href="#" class="btn-line" id="line-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.03 2 11c0 4.03 2.77 7.45 6.6 8.72L8 22l3.06-1.56C11.36 20.47 11.68 20.5 12 20.5c5.52 0 10-4.03 10-9S17.52 2 12 2z"/></svg>
+        直接加 LINE 聯繫
+      </a>
+      <!-- 電話連結：替換 href 為實際電話 -->
+      <a href="tel:+886" class="btn-call" id="call-btn">
+        📞 有需求歡迎先聊聊
+      </a>
+    </div>
+  </div>
+
+  <p class="contact-footer-note">
+    張現傑 ｜ 工業不動產・設廠評估整合服務<br>
+    台中・中部地區 ｜ 服務超過 17 年
+  </p>
+
+</section>
+
+
+<!-- ══════════════════════════════
+     Footer
+══════════════════════════════ -->
+<footer class="page-footer">
+  <div class="footer-brand">
+    <strong>張現傑</strong>｜工業不動產與設廠評估整合服務<br>
+    可整合合作資源：瑞禾開發 建築・房產整合團隊
+  </div>
+</footer>
+
+</div><!-- /.page-wrap -->
+</body>
+</html>
